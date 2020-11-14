@@ -10,12 +10,12 @@ import UIKit
 import Foundation
 
 protocol IRouter {
-    var navBar: UINavigationController! { get }
+    var navigationController: UINavigationController! { get }
     func initiateMainScreen() -> UINavigationController
 }
 
 class Router: IRouter {
-    private(set) var navBar: UINavigationController!
+    private(set) var navigationController: UINavigationController!
     
     var assmeblyBuilder: IAssembleBuilder
     
@@ -25,7 +25,7 @@ class Router: IRouter {
     
     func initiateMainScreen() -> UINavigationController {
         let vc = assmeblyBuilder.createMainModule(router: self)
-        navBar = UINavigationController(rootViewController: vc)
-        return navBar
+        navigationController = UINavigationController(rootViewController: vc)
+        return navigationController
     }
 }
