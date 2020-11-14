@@ -10,11 +10,11 @@ import Foundation
 
 struct User {
     let uuid: String
-    var token: String?
+    let name: String
     
-    internal init(uuid: String = UUID().uuidString, token: String?) {
+    internal init(uuid: String = UUID().uuidString, name: String) {
         self.uuid = uuid
-        self.token = token
+        self.name = name
     }
     
 }

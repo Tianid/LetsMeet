@@ -15,4 +15,6 @@ struct Meet {
     let address: String?
     let long: Double? // X
     let lat: Double? // Y
+    let creationDate: Date
+    let modifiedDate: Date
 }

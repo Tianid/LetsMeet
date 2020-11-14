@@ -10,7 +10,9 @@ import Foundation
 
 struct Party {
     let name: String
-    let partyUnicId: String
+    let joiningKey: String
+    let creationDate: Date
+    let modifiedDate: Date
     let users: [User]
     let meetings: [Meet]
     
