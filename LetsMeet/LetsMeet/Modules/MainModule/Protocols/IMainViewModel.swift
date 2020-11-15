@@ -9,5 +9,5 @@
 import Foundation
 
 protocol IMainViewModel {
-    
+    func numberOfItems() -> Int
 }

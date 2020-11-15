@@ -10,6 +10,7 @@ import Foundation
 
 protocol IAssembleBuilder {
     func createMainModule(router: IRouter) -> UIViewController
+    func createProfileModule(router: IRouter) -> UIViewController
 }
 
 class AssemberlModuleBuilder: IAssembleBuilder {
@@ -23,5 +24,17 @@ class AssemberlModuleBuilder: IAssembleBuilder {
         vc.viewModel = viewModel
         return vc
     }
+    
+    func createProfileModule(router: IRouter) -> UIViewController {
+        
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        guard let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC else {
+            fatalError("Failed to load EditUserViewController from storyboard.")
+        }
+        let viewModel = ProfileViewModel(router: router)
+        profileVC.viewModel = viewModel
+        return profileVC
+    }
+    
     
 }

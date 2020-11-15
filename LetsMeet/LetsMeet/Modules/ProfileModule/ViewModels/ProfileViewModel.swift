@@ -1,24 +1,22 @@
 //
-//  MainViewModel.swift
+//  ProfileViewModel.swift
 //  LetsMeet
 //
-//  Created by Tianid on 13.11.2020.
+//  Created by Tianid on 15.11.2020.
 //  Copyright © 2020 Tianid. All rights reserved.
 //
 
 import Foundation
 
-class MainViewModel {
+class ProfileViewModel {
+    
     private var router: IRouter
     
     init(router: IRouter) {
         self.router = router
     }
-    
 }
 
-extension MainViewModel: IMainViewModel {
-    func numberOfItems() -> Int {
-        return 2
-    }
+extension ProfileViewModel: IProfileViewModel {
+    
 }

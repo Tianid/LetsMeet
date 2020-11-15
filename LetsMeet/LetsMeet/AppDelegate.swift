@@ -22,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureAppStart() {
         let assembler = AssemberlModuleBuilder()
-        let router = Router(assembler: assembler)
-        let vc = router.initiateMainScreen()
+        let tabBar = TabBarVC()
+        let router = Router(tabBar: tabBar, assembler: assembler)
+        router.initiateTabBar()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = vc
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
         
     }
