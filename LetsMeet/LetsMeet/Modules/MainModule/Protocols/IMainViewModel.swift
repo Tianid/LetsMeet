@@ -10,4 +10,5 @@ import Foundation
 
 protocol IMainViewModel {
     func numberOfItems() -> Int
+    func cellViewModel(index: IndexPath) -> IPartyCellViewModel
 }

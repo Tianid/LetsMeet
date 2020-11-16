@@ -10,6 +10,7 @@ import Foundation
 
 class MainViewModel {
     private var router: IRouter
+    private var partys = testPartys
     
     init(router: IRouter) {
         self.router = router
@@ -18,7 +19,13 @@ class MainViewModel {
 }
 
 extension MainViewModel: IMainViewModel {
+    func cellViewModel(index: IndexPath) -> IPartyCellViewModel {
+        let party = partys[index.row]
+        let viewModel = PartyCellViewModel(party: party)
+        return viewModel
+    }
+    
     func numberOfItems() -> Int {
-        return 2
+        return partys.count
     }
 }

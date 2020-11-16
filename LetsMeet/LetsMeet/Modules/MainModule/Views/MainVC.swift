@@ -10,19 +10,15 @@ import UIKit
 
 class MainVC: UIViewController {
     
+    private let cellIdentifier = "PartyCell"
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: IMainViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Partys"
-        view.backgroundColor = .systemRed
-
-//        collectionView.register(PartyCell.self, forCellWithReuseIdentifier: "PartyCell")
-        // Do any additional setup after loading the view.
     }
-
-
 }
 
 
@@ -32,7 +28,8 @@ extension MainVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PartyCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PartyCell else { return UICollectionViewCell() }
+        cell.viewModel = viewModel?.cellViewModel(index: indexPath)
         return cell
         
     }
