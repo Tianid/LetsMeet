@@ -278,9 +278,9 @@
 				12DF23CE25616B38008A7B7B /* PartyCell.swift */,
 				125679E92562B30700B55A2F /* MeetCell.swift */,
 				125679F72562D2D000B55A2F /* PartyControllCell.swift */,
+				125679ED2562B33500B55A2F /* CardView.swift */,
 				12F4ACCF255ECEBF00691AE6 /* Main.storyboard */,
 				125679EA2562B30700B55A2F /* MeetCell.xib */,
-				125679ED2562B33500B55A2F /* CardView.swift */,
 				125679F82562D2D000B55A2F /* PartyControllCell.xib */,
 			);
 			path = Views;
