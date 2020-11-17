@@ -61,9 +61,7 @@ class MeetCell: UITableViewCell {
     }
     
     func tapped() {
-        viewModel?.meetDate.value = Date()
-        viewModel?.meetAddress.value = "NEW ADDRESS"
-        viewModel?.meetName.value = "NEW VALUE"
+        viewModel?.saveMeetChanges()
     }
     
     

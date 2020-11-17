@@ -9,6 +9,7 @@
 import Foundation
 
 protocol IMainViewModel {
+    var partysB: Box<[Party]?> { get }
     func numberOfItems() -> Int
     func cellViewModel(index: IndexPath) -> IPartyCellViewModel
 }

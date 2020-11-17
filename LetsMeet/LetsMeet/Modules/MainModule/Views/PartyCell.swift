@@ -15,6 +15,7 @@ class PartyCell: UICollectionViewCell {
     
     var viewModel: IPartyCellViewModel? {
         didSet {
+            makeBind()
             tableView.reloadData()
         }
     }
@@ -22,13 +23,25 @@ class PartyCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         configureViews()
+        // Initialization code
     }
     
     private func configureViews() {
         tableView.register(UINib(nibName: "\(PartyControllCell.self)", bundle: nil), forCellReuseIdentifier: controllCellIdentifier)
         tableView.register(UINib(nibName: "\(MeetCell.self)", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    }
+    
+    private func makeBind() {
+        viewModel?.newMeet.bind { [unowned self] in
+            guard let index = $0 else { return }
+            self.tableView.insertRows(at: [index], with: .automatic)
+        }
+        
+        viewModel?.changedMeet.bind { [unowned self] in
+            guard let index = $0 else { return }
+            self.tableView.reloadRows(at: [index], with: .automatic)
+        }
     }
 
 }

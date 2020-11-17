@@ -13,18 +13,20 @@ class PartyControllCell: UITableViewCell {
     @IBOutlet weak var partyNameLabel: UILabel!
     @IBAction func newMeetingAction(_ sender: UIButton) {
         print(#function)
+        viewModel?.addNewMeet()
     }
     
     
     var viewModel: IPartyControllCellViewModel? {
         didSet {
-            guard let _viewModel = viewModel else { return }
-            partyNameLabel.text = _viewModel.partyName
+            makeBind()
+            setDataToLabel()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         // Initialization code
     }
 
@@ -32,6 +34,19 @@ class PartyControllCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func setDataToLabel() {
+        guard let _viewModel = viewModel else { return }
+        partyNameLabel.text = _viewModel.partyName
+    }
+    
+    private func makeBind() {
+        viewModel?.partyNameLabel.bind { [unowned self] in
+            guard let name = $0 else { return }
+            self.partyNameLabel.text = name
+            
+        }
     }
     
 }

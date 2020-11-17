@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol IPartyCellViewModel {
+protocol IPartyCellViewModel: class {
+    var newMeet: Box<IndexPath?> { get }
+    var changedMeet: Box<IndexPath?> { get }
     func numberOfItems() -> Int
     func cellViewModel(index: IndexPath) -> IMeetCellViewModel
     func partyControllCellViewModel() -> IPartyControllCellViewModel

@@ -9,12 +9,13 @@
 import Foundation
 
 protocol IMeetCellViewModel {
-    
+   
     var date: Date { get }
     var name: String { get }
     var address: String { get }
-    
     var meetDate: Box<Date?> { get }
     var meetName: Box<String?> { get }
     var meetAddress: Box<String?> { get }
+    
+    func saveMeetChanges()
 }
